@@ -3,11 +3,11 @@ import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import { Container, Form, Input, Button, StyledLink } from "../FormComponents"
-import AuthContext from "../../contexts/AuthContext";
+import UserContext from "../../contexts/UserContext";
 
 export default function MainPage() {
     const [formData, setFormData] = useState({ email: '', password: '' });
-    const { user, setUser } = useContext(AuthContext)
+    const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate();
 
     function handleChange(e) {
