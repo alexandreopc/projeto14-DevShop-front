@@ -1,7 +1,7 @@
 import reactDom from "react-dom"
 import App from "./components/App"
 
-import "./assests/css/reset.css"
-import "./assests/css/style.css"
+import "./assets/css/reset.css"
+import "./assets/css/style.css"
 
 reactDom.render(<App />, document.querySelector(".root"))
