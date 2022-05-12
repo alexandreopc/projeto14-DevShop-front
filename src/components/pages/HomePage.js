@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import cart from "./../../assets/cart.png";
 import lightmode from "./../../assets/lightmode.png";
@@ -17,7 +17,9 @@ export default function HomePage() {
       <Header>
         <img src={lightmode} />
         <h1>DevShop</h1>
-        <img src={cart} />
+        <Link to="/cart">
+          <img src={cart} />
+        </Link>
       </Header>
       <CategoriesTitle>Categories</CategoriesTitle>
       <AllCategories>
@@ -59,8 +61,7 @@ export default function HomePage() {
         </Categorie>
       </AllCategories>
       <Produts>
-        <Card>
-        </Card>
+        <Card></Card>
         <Card />
         <Card />
         <Card />
