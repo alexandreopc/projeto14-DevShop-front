@@ -1,7 +1,15 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {Header, Categorie, CategoriesTitle, Card, Produts, Background, AllCategories} from "./style";
+import {
+  Header,
+  Categorie,
+  CategoriesTitle,
+  Card,
+  Produts,
+  Background,
+  AllCategories,
+} from "./style";
 import cart from "./../../../assets/cart.png";
 import lightmode from "./../../../assets/lightmode.png";
 import hardware from "./../../../assets/hardware.png";
@@ -12,15 +20,14 @@ import games from "./../../../assets/games.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
-
 export default function Hardware() {
   const [hardwares, setHardwares] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     renderHardware();
-    }, []);
+  }, []);
 
-    function renderHardware(){
+  function renderHardware() {
     const promise = axios.get("http://localhost:5000/hardware/");
     promise.then((response) => {
       setHardwares(response.data);
@@ -28,7 +35,7 @@ export default function Hardware() {
     promise.catch((error) => {
       console.log(error);
     });
-    }
+  }
 
   return (
     <>
@@ -42,17 +49,19 @@ export default function Hardware() {
       <CategoriesTitle>Categories</CategoriesTitle>
       <AllCategories>
         <Categorie>
-        <Link to="/hardware">
-          <Background>
-            <img src={hardware} />
-          </Background>
+          <Link to="/hardware">
+            <Background>
+              <img src={hardware} />
+            </Background>
           </Link>
           <h3>hardware</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={audio} />
-          </Background>
+          <Link to="/audio">
+            <Background>
+              <img src={audio} />
+            </Background>
+          </Link>
           <h3>audio</h3>
         </Categorie>
         <Categorie>
@@ -87,16 +96,16 @@ export default function Hardware() {
         </Categorie>
       </AllCategories>
       <Produts>
-      {hardwares.map((hardware) => {
-        return (
-        <Card>
-          <img src={hardware.url}/>
-          <h1>{hardware.title}</h1>
-          <h2>${hardware.price}</h2>
-        </Card>
-        )})}
+        {hardwares.map((hardware) => {
+          return (
+            <Card>
+              <img src={hardware.url} />
+              <h1>{hardware.title}</h1>
+              <h2>${hardware.price}</h2>
+            </Card>
+          );
+        })}
       </Produts>
     </>
   );
 }
-
