@@ -9,6 +9,7 @@ import Audio from "./pages/NavPages/Audio";
 import Smarthome from "./pages/NavPages/Smarthome";
 import Books from "./pages/NavPages/Books";
 import Accessory from "./pages/NavPages/Accessory";
+import Games from "./pages/NavPages/Games";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import UserContext from "../contexts/UserContext";
@@ -27,6 +28,7 @@ export default function App() {
                     <Route path="/smarthome" element={<Smarthome />}></Route>
                     <Route path="/books" element={<Books />}></Route>
                     <Route path="/accessory" element={<Accessory />}></Route>
+                    <Route path="/games" element={<Games />}></Route>
                     <Route path="/cart" element={<Cart />}></Route>
                     <Route path="/checkout" element={<Checkout />}></Route>
                 </Routes>

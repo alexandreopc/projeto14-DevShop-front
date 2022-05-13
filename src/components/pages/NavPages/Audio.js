@@ -89,9 +89,11 @@ export default function Audio() {
           <h3>accessory</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={games} />
-          </Background>
+          <Link to="/games">
+            <Background>
+              <img src={games} />
+            </Background>
+          </Link>
           <h3>games</h3>
         </Categorie>
         <Categorie>
