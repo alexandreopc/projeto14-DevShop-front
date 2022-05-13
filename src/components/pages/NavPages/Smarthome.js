@@ -20,17 +20,17 @@ import games from "./../../../assets/games.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
-export default function HomePage() {
-  const [products, setProducts] = useState([]);
+export default function Smarthome() {
+  const [smarthomes, setSmarthomes] = useState([]);
 
   useEffect(() => {
-    renderProducts();
+    renderSmarthome();
   }, []);
 
-  function renderProducts() {
-    const promise = axios.get("http://localhost:5000/home/");
+  function renderSmarthome() {
+    const promise = axios.get("http://localhost:5000/smarthome/");
     promise.then((response) => {
-      setProducts(response.data);
+      setSmarthomes(response.data);
     });
     promise.catch((error) => {
       console.log(error);
@@ -98,12 +98,12 @@ export default function HomePage() {
         </Categorie>
       </AllCategories>
       <Produts>
-        {products.map((product) => {
+        {smarthomes.map((smarthome) => {
           return (
             <Card>
-              <img src={product.url} />
-              <h1>{product.title}</h1>
-              <h2>${product.price}</h2>
+              <img src={smarthome.url} />
+              <h1>{smarthome.title}</h1>
+              <h2>${smarthome.price}</h2>
             </Card>
           );
         })}

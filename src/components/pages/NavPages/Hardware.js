@@ -65,9 +65,11 @@ export default function Hardware() {
           <h3>audio</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={smarthome} />
-          </Background>
+          <Link to="/smarthome">
+            <Background>
+              <img src={smarthome} />
+            </Background>
+          </Link>
           <h3>smarthome</h3>
         </Categorie>
         <Categorie>
