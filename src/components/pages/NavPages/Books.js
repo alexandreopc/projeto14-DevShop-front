@@ -20,17 +20,17 @@ import games from "./../../../assets/games.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
-export default function Hardware() {
-  const [hardwares, setHardwares] = useState([]);
+export default function Books() {
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    renderHardware();
+    renderBooks();
   }, []);
 
-  function renderHardware() {
-    const promise = axios.get("http://localhost:5000/hardware/");
+  function renderBooks() {
+    const promise = axios.get("http://localhost:5000/books/");
     promise.then((response) => {
-      setHardwares(response.data);
+      setBooks(response.data);
     });
     promise.catch((error) => {
       console.log(error);
@@ -100,12 +100,12 @@ export default function Hardware() {
         </Categorie>
       </AllCategories>
       <Produts>
-        {hardwares.map((hardware) => {
+        {books.map((book) => {
           return (
             <Card>
-              <img src={hardware.url} />
-              <h1>{hardware.title}</h1>
-              <h2>${hardware.price}</h2>
+              <img src={book.url} />
+              <h1>{book.title}</h1>
+              <h2>${book.price}</h2>
             </Card>
           );
         })}

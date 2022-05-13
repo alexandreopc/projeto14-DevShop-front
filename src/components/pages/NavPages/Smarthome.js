@@ -73,9 +73,11 @@ export default function Smarthome() {
           <h3>smarthome</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={books} />
-          </Background>
+          <Link to="/books">
+            <Background>
+              <img src={books} />
+            </Background>
+          </Link>
           <h3>books</h3>
         </Categorie>
         <Categorie>
