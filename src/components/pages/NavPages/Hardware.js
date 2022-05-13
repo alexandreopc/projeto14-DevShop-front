@@ -81,9 +81,11 @@ export default function Hardware() {
           <h3>books</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={peripherals} />
-          </Background>
+          <Link to="/accessory">
+            <Background>
+              <img src={peripherals} />
+            </Background>
+          </Link>
           <h3>accessory</h3>
         </Categorie>
         <Categorie>
