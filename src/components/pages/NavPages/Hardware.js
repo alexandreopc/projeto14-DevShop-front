@@ -13,17 +13,17 @@ import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
 
-export default function HomePage() {
-  const [products, setProducts] = useState([]);
+export default function Hardware() {
+  const [hardwares, setHardwares] = useState([]);
 
     useEffect(() => {
-    renderProducts();
+    renderHardware();
     }, []);
 
-    function renderProducts(){
-    const promise = axios.get("http://localhost:5000/home/");
+    function renderHardware(){
+    const promise = axios.get("http://localhost:5000/hardware/");
     promise.then((response) => {
-      setProducts(response.data);
+      setHardwares(response.data);
     });
     promise.catch((error) => {
       console.log(error);
@@ -42,7 +42,7 @@ export default function HomePage() {
       <CategoriesTitle>Categories</CategoriesTitle>
       <AllCategories>
         <Categorie>
-          <Link to="/hardware">
+        <Link to="/hardware">
           <Background>
             <img src={hardware} />
           </Background>
@@ -87,12 +87,12 @@ export default function HomePage() {
         </Categorie>
       </AllCategories>
       <Produts>
-      {products.map((product) => {
+      {hardwares.map((hardware) => {
         return (
         <Card>
-          <img src={product.url}/>
-          <h1>{product.title}</h1>
-          <h2>${product.price}</h2>
+          <img src={hardware.url}/>
+          <h1>{hardware.title}</h1>
+          <h2>${hardware.price}</h2>
         </Card>
         )})}
       </Produts>
