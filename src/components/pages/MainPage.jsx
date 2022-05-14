@@ -33,6 +33,7 @@ export default function MainPage() {
     return (
         <Container>
             <h1>DevShop</h1>
+            <h2>your favorite dev store</h2>
             <Form onSubmit={handleSubmit}>
                 <Input
                     type="email"
