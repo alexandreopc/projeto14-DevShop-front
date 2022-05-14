@@ -16,6 +16,7 @@ const Form = styled.form`
     border: none;
     color: #c4c4c4;
     font-size: 20px;
+    text-align: center;
   }
 
   button {
@@ -48,8 +49,7 @@ const Container = styled.main`
   }
   hr {
     height: 0.1vh;
-    width: 80vw;
-    border-width: 0;
+    width: 85vw;
     color: #000;
     background-color: #000;
   }
@@ -101,7 +101,7 @@ const Result = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 26px;
 `;
 

@@ -12,9 +12,11 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Checkout() {
+  const random = Math.floor(Math.random() * 30 + 10);
   const [payment, setPayment] = useState("");
   const [address, setAddress] = useState("");
-  const [shipping, setShipping] = useState(20);
+  const [shipping, setShipping] = useState(random);
+  const [total, setTotal] = useState("");
 
   function buyItens(e) {
     e.preventDefault();
