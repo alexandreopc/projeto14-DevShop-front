@@ -12,7 +12,7 @@ import Accessory from "./pages/NavPages/Accessory";
 import Games from "./pages/NavPages/Games";
 import Chair from "./pages/NavPages/Chair";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+import Checkout from "./pages/Checkout/Checkout";
 import UserContext from "../contexts/UserContext";
 
 export default function App() {
