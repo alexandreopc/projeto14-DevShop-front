@@ -20,17 +20,17 @@ import games from "./../../../assets/games.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
-export default function Audio() {
-  const [audios, setAudios] = useState([]);
+export default function Chair() {
+  const [chairs, setChairs] = useState([]);
 
   useEffect(() => {
-    renderAudio();
+    renderChairs();
   }, []);
 
-  function renderAudio() {
-    const promise = axios.get("http://localhost:5000/audio/");
+  function renderChairs() {
+    const promise = axios.get("http://localhost:5000/chair/");
     promise.then((response) => {
-      setAudios(response.data);
+      setChairs(response.data);
     });
     promise.catch((error) => {
       console.log(error);
@@ -106,12 +106,12 @@ export default function Audio() {
         </Categorie>
       </AllCategories>
       <Produts>
-        {audios.map((audio) => {
+        {chairs.map((chair) => {
           return (
             <Card>
-              <img src={audio.url} />
-              <h1>{audio.title}</h1>
-              <h2>${audio.price}</h2>
+              <img src={chair.url} />
+              <h1>{chair.title}</h1>
+              <h2>${chair.price}</h2>
             </Card>
           );
         })}

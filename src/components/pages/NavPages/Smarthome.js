@@ -97,9 +97,11 @@ export default function Smarthome() {
           <h3>games</h3>
         </Categorie>
         <Categorie>
-          <Background>
-            <img src={chair} />
-          </Background>
+          <Link to="/chair">
+            <Background>
+              <img src={chair} />
+            </Background>
+          </Link>
           <h3>chair</h3>
         </Categorie>
       </AllCategories>

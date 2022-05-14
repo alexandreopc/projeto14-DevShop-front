@@ -10,6 +10,7 @@ import Smarthome from "./pages/NavPages/Smarthome";
 import Books from "./pages/NavPages/Books";
 import Accessory from "./pages/NavPages/Accessory";
 import Games from "./pages/NavPages/Games";
+import Chair from "./pages/NavPages/Chair";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import UserContext from "../contexts/UserContext";
@@ -29,6 +30,7 @@ export default function App() {
                     <Route path="/books" element={<Books />}></Route>
                     <Route path="/accessory" element={<Accessory />}></Route>
                     <Route path="/games" element={<Games />}></Route>
+                    <Route path="/chair" element={<Chair />}></Route>
                     <Route path="/cart" element={<Cart />}></Route>
                     <Route path="/checkout" element={<Checkout />}></Route>
                 </Routes>
