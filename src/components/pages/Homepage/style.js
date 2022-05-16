@@ -30,6 +30,9 @@ const AllCategories = styled.nav`
   margin-left: 10px;
   margin-top: 24px;
   overflow-x: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Categorie = styled.div`

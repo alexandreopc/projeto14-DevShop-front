@@ -19,9 +19,11 @@ import books from "./../../../assets/books.png";
 import games from "./../../../assets/games.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
+import UserContext from "../../../contexts/UserContext";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const { email, config } = useContext(UserContext);
 
   useEffect(() => {
     renderProducts();
@@ -36,6 +38,19 @@ export default function HomePage() {
       console.log(error);
     });
   }
+
+  function chooseProduct(item) {
+    const body = {
+      email,
+      itemId: item._id,
+      url: item.url,
+      title: item.title,
+      price: item.price
+    };
+    const promise = axios.post("http://localhost:5000/cart", body, config);
+    promise.then((response)=> console.log(response.status));
+  }
+  
 
   return (
     <>
@@ -108,7 +123,7 @@ export default function HomePage() {
       <Produts>
         {products.map((product) => {
           return (
-            <Card>
+            <Card key={product._id} onClick={()=> {chooseProduct(product)}}>
               <img src={product.url} />
               <h1>{product.title}</h1>
               <h2>${product.price}</h2>

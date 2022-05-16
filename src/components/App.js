@@ -11,14 +11,23 @@ import Books from "./pages/NavPages/Books";
 import Accessory from "./pages/NavPages/Accessory";
 import Games from "./pages/NavPages/Games";
 import Chair from "./pages/NavPages/Chair";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import UserContext from "../contexts/UserContext";
 
 export default function App() {
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [email, setEmail] = useState(localStorage.getItem("email"));
+    const [products, setProducts] = useState([]);
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            email
+        }
+    }
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, config, setEmail, email, setToken, token, products, setProducts }}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainPage />}></Route>

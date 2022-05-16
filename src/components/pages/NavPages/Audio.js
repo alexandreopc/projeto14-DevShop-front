@@ -41,7 +41,7 @@ export default function Audio() {
     <>
       <Header>
         <img src={lightmode} />
-        <h1>DevShop</h1>
+        <Link to="/home"><h1>DevShop</h1></Link>
         <Link to="/cart">
           <img src={cart} />
         </Link>
