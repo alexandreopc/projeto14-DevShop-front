@@ -11,9 +11,18 @@ const Header = styled.main`
     height: 25px;
     margin-right: 22px;
     margin-left: 22px;
+
+    @media (min-width: 700px) {
+      width: 40px;
+      height: 40px;
+    }
   }
   h1 {
     font-size: 32px;
+
+    @media (min-width: 700px) {
+      font-size: 50px;
+    }
   }
 `;
 
@@ -21,6 +30,10 @@ const CategoriesTitle = styled.h2`
   font-size: 23px;
   margin-left: 30px;
   margin-top: 30px;
+
+  @media (min-width: 700px) {
+    font-size: 30px;
+  }
 `;
 
 const AllCategories = styled.nav`
@@ -30,6 +43,13 @@ const AllCategories = styled.nav`
   margin-left: 10px;
   margin-top: 24px;
   overflow-x: scroll;
+
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
 `;
 
 const Categorie = styled.div`
@@ -56,6 +76,16 @@ const Background = styled.div`
   img {
     height: 30px;
     width: 30px;
+
+    @media (min-width: 700px) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  @media (min-width: 700px) {
+    width: 77px;
+    height: 77px;
   }
 `;
 
@@ -97,4 +127,12 @@ const Card = styled.div`
   }
 `;
 
-export {Header, Categorie, CategoriesTitle, Card, Produts, Background, AllCategories};
+export {
+  Header,
+  Categorie,
+  CategoriesTitle,
+  Card,
+  Produts,
+  Background,
+  AllCategories,
+};
