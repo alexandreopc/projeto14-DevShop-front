@@ -15,10 +15,12 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import UserContext from "../contexts/UserContext";
 
+
 export default function App() {
     const [user, setUser] = useState(null);
+
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainPage />}></Route>

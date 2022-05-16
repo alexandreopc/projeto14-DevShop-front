@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
+import UserContext from "../../../contexts/UserContext";
 import { useNavigate, Link } from "react-router-dom";
 import {
   Header,
@@ -15,8 +16,8 @@ import lightmode from "./../../../assets/lightmode.png";
 import hardware from "./../../../assets/hardware.png";
 import audio from "./../../../assets/audio.png";
 import smarthome from "./../../../assets/smarthome.png";
-import books from "./../../../assets/books.png";
-import games from "./../../../assets/games.png";
+import book from "./../../../assets/book.png";
+import game from "./../../../assets/game.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
@@ -40,7 +41,7 @@ export default function HomePage() {
   return (
     <>
       <Header>
-        <img src={lightmode} />
+        <img src={lightmode}/>
         <h1>DevShop</h1>
         <Link to="/cart">
           <img src={cart} />
@@ -75,7 +76,7 @@ export default function HomePage() {
         <Categorie>
           <Link to="/books">
             <Background>
-              <img src={books} />
+              <img src={book} />
             </Background>
           </Link>
           <h3>books</h3>
@@ -91,7 +92,7 @@ export default function HomePage() {
         <Categorie>
           <Link to="/games">
             <Background>
-              <img src={games} />
+              <img src={game} />
             </Background>
           </Link>
           <h3>games</h3>
