@@ -16,7 +16,7 @@ export default function MainPage() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post(`http://endereco/signin`, {
+        axios.post(`http://localhost:5000/sign-in`, {
             email: formData.email,
             password: formData.password
         })
@@ -24,7 +24,7 @@ export default function MainPage() {
                 console.log(res)
                 const { token, name } = res.data;
                 setUser({ name, token });
-                navigate("/products")//mudar enderco
+                navigate("/home")
             })
             .catch(e => console.log(e))
 

@@ -17,6 +17,7 @@ const Form = styled.form`
     color: #c4c4c4;
     font-size: 20px;
     text-align: center;
+
   }
 
   button {
@@ -60,6 +61,10 @@ const Title = styled.h1`
   padding-top: calc(24px - 34px);
   display: flex;
   justify-content: center;
+
+  @media (min-width: 700px){
+    font-size: 50px;
+}
 `;
 
 const Shipping = styled.div`

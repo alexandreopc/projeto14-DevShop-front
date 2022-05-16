@@ -28,7 +28,7 @@ export default function HomePage() {
   }, []);
 
   function renderProducts() {
-    const promise = axios.get("http://localhost:5000/home/");
+    const promise = axios.get("http://localhost:5000/home");
     promise.then((response) => {
       setProducts(response.data);
     });
