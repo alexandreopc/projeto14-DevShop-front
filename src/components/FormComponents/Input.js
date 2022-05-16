@@ -11,10 +11,22 @@ const Input = styled.input`
   color: #C4C4C4;
   background-color: #232B60;
 
+  @media (min-width: 600px){
+    width: 500px;
+    height: 60px;
+}
+
+@media (min-width: 700px){
+    width: 600px;
+    height: 70px;
+}
+
   &::placeholder{
     text-align: center;
     font-size: 20px;
     color: #C4C4C4;
   }
 `
+
+
 export default Input;

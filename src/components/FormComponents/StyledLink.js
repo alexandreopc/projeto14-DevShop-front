@@ -11,6 +11,10 @@ const StyledLink = styled(Link)`
   span {
     color: #633E80;
   }
+
+  @media (min-width: 700px){
+    font-size: 15px;
+}
 `;
 
 export default StyledLink;

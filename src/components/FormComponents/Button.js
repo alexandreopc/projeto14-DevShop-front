@@ -16,6 +16,11 @@ const Button = styled.button`
   
   background: #633E80;
   color: #FFFFFF;
+
+  @media (min-width: 700px){
+    width: 250px;
+    height: 60px;
+}
 `;
 
 export default Button

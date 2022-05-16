@@ -21,5 +21,16 @@ background-color: #20223F;
         line-height: 17px;
         color: #C4C4C4;
     }
+
+    @media (min-width: 700px){
+    
+    h1 {
+        font-size: 80px;
+    }
+    h2 {
+        font-size: 18px;
+        margin-top: 4px;
+    }
+}
 `
 export default Container

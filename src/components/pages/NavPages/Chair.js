@@ -15,8 +15,8 @@ import lightmode from "./../../../assets/lightmode.png";
 import hardware from "./../../../assets/hardware.png";
 import audio from "./../../../assets/audio.png";
 import smarthome from "./../../../assets/smarthome.png";
-import books from "./../../../assets/books.png";
-import games from "./../../../assets/games.png";
+import book from "./../../../assets/book.png";
+import game from "./../../../assets/game.png";
 import chair from "./../../../assets/chair.png";
 import peripherals from "./../../../assets/peripherals.png";
 
@@ -75,7 +75,7 @@ export default function Chair() {
         <Categorie>
           <Link to="/books">
             <Background>
-              <img src={books} />
+              <img src={book} />
             </Background>
           </Link>
           <h3>books</h3>
@@ -91,7 +91,7 @@ export default function Chair() {
         <Categorie>
           <Link to="/games">
             <Background>
-              <img src={games} />
+              <img src={game} />
             </Background>
           </Link>
           <h3>games</h3>

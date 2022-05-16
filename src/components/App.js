@@ -15,6 +15,7 @@ import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import UserContext from "../contexts/UserContext";
 
+
 export default function App() {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("token"));
