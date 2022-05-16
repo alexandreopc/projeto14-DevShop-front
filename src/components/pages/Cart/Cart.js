@@ -6,32 +6,33 @@ import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import axios from "axios";
 
-
 export default function Cart() {
     const { token, email, products, setProducts } = useContext(UserContext);
     let totalCart = 0;
-    
+
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
             email
         }
-}
+    }
 
-    useEffect(()=> {
-        const promise = axios.get("http://localhost:5000/cart/", config);
-        promise.then((response)=> {
+    useEffect(() => {
+        const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/cart/`, config);
+        promise.then((response) => {
             setProducts(response.data);
         })
-        promise.catch((response)=> {console.log(response)})
+        promise.catch((response) => { console.log(response) })
     }, [])
 
     return (
         <Container>
-            <img src={arrow} />
+            <Link to="/home">
+                <img src={arrow} />
+            </Link>
             <h1>Cart</h1>
             <section className="products">
-                {products.map((product)=> {
+                {products.map((product) => {
                     totalCart += parseInt(product.price);
                     return (
                         <div className="product">
@@ -42,7 +43,7 @@ export default function Cart() {
                             </div>
                             <img src={bin} />
                         </div>
-                    )   
+                    )
                 })}
             </section>
             <p>Total order:</p>

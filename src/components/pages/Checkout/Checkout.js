@@ -14,36 +14,36 @@ import UserContext from "../../../contexts/UserContext";
 import axios from "axios";
 
 export default function Checkout() {
-  const {products, config} = useContext(UserContext);
+  const { products, config } = useContext(UserContext);
   const navigate = useNavigate();
   const random = Math.floor(Math.random() * 30 + 10);
   const [payment, setPayment] = useState("");
   const [address, setAddress] = useState("");
   const [shipping, setShipping] = useState(random);
   let total = 0;
-  const teste = products.map((product)=> total += parseInt(product.price));
-  for(let i = 0; i < teste.length; i++) {
+  const teste = products.map((product) => total += parseInt(product.price));
+  for (let i = 0; i < teste.length; i++) {
     total += teste[i];
   }
   console.log(total);
-  const finalTotal = shipping + total; 
+  const finalTotal = shipping + total;
   const body = {
     finalTotal,
     payment,
     address,
     products
   }
-  
+
 
   function buyItens(e) {
     e.preventDefault();
 
-    const promise = axios.post("http://localhost:5000/success", body, config);
-    promise.then(()=> {
-      alert("Compra feita com sucesso"); 
+    const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/success`, body, config);
+    promise.then(() => {
+      alert("Compra feita com sucesso");
       navigate("/")
     });
-    promise.catch((error)=> console.log(error));
+    promise.catch((error) => console.log(error));
   }
 
   return (

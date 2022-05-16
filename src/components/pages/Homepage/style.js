@@ -46,6 +46,13 @@ const AllCategories = styled.nav`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
 `;
 
 const Categorie = styled.div`

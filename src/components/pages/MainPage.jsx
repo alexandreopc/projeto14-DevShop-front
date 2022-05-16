@@ -16,7 +16,7 @@ export default function MainPage() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post(`http://localhost:5000/sign-in`, {
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, {
             email: formData.email,
             password: formData.password
         })

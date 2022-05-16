@@ -10,6 +10,7 @@ import {
   Background,
   AllCategories,
 } from "./style";
+import UserContext from "../../../contexts/UserContext";
 import cart from "./../../../assets/cart.png";
 import lightmode from "./../../../assets/lightmode.png";
 import hardware from "./../../../assets/hardware.png";
@@ -22,19 +23,32 @@ import peripherals from "./../../../assets/peripherals.png";
 
 export default function Audio() {
   const [audios, setAudios] = useState([]);
+  const { email, config } = useContext(UserContext);
 
   useEffect(() => {
     renderAudio();
   }, []);
 
   function renderAudio() {
-    const promise = axios.get("http://localhost:5000/audio/");
+    const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/audio/`);
     promise.then((response) => {
       setAudios(response.data);
     });
     promise.catch((error) => {
       console.log(error);
     });
+  }
+
+  function chooseProduct(item) {
+    const body = {
+      email,
+      itemId: item._id,
+      url: item.url,
+      title: item.title,
+      price: item.price
+    };
+    const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/cart`, body, config);
+    promise.then((response) => console.log(response.status));
   }
 
   return (
@@ -108,7 +122,7 @@ export default function Audio() {
       <Produts>
         {audios.map((audio) => {
           return (
-            <Card>
+            <Card key={audio._id} onClick={() => { chooseProduct(audio) }}>
               <img src={audio.url} />
               <h1>{audio.title}</h1>
               <h2>${audio.price}</h2>
