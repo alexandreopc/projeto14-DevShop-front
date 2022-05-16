@@ -9,18 +9,41 @@ import {
   Order,
   Shipping,
 } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserContext from "../../../contexts/UserContext";
+import axios from "axios";
 
 export default function Checkout() {
+  const { products, config } = useContext(UserContext);
+  const navigate = useNavigate();
   const random = Math.floor(Math.random() * 30 + 10);
   const [payment, setPayment] = useState("");
   const [address, setAddress] = useState("");
   const [shipping, setShipping] = useState(random);
-  const [total, setTotal] = useState("");
+  let total = 0;
+  const teste = products.map((product) => total += parseInt(product.price));
+  for (let i = 0; i < teste.length; i++) {
+    total += teste[i];
+  }
+  console.log(total);
+  const finalTotal = shipping + total;
+  const body = {
+    finalTotal,
+    payment,
+    address,
+    products
+  }
+
 
   function buyItens(e) {
     e.preventDefault();
-    alert("Compra feita com sucesso");
+
+    const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/success`, body, config);
+    promise.then(() => {
+      alert("Compra feita com sucesso");
+      navigate("/")
+    });
+    promise.catch((error) => console.log(error));
   }
 
   return (
@@ -49,7 +72,7 @@ export default function Checkout() {
         <Result>
           <Order>
             <p>Order</p>
-            <p>$100</p>
+            <p>${total}</p>
           </Order>
           <Shipping>
             <p>Shipping</p>
@@ -58,7 +81,7 @@ export default function Checkout() {
           <hr></hr>
           <Values>
             <h4>Total</h4>
-            <h4>$100</h4>
+            <h4>${finalTotal}</h4>
           </Values>
         </Result>
         <button type="submit">Pay Now</button>

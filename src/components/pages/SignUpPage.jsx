@@ -20,7 +20,7 @@ export default function SignUp() {
             return alert("Senhas não correspondem entre si!")
         }
 
-        axios.post(`http://localhost:5000/sign-up`, {
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, {
             name: formData.name,
             email: formData.email,
             password: formData.password

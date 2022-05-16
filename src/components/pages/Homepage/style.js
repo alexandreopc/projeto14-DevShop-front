@@ -43,6 +43,9 @@ const AllCategories = styled.nav`
   margin-left: 10px;
   margin-top: 24px;
   overflow-x: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (min-width: 600px) {
     display: flex;

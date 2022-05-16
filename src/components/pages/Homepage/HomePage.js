@@ -23,13 +23,14 @@ import peripherals from "./../../../assets/peripherals.png";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const { email, config } = useContext(UserContext);
 
   useEffect(() => {
     renderProducts();
   }, []);
 
   function renderProducts() {
-    const promise = axios.get("http://localhost:5000/home");
+    const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/home`);
     promise.then((response) => {
       setProducts(response.data);
     });
@@ -38,10 +39,23 @@ export default function HomePage() {
     });
   }
 
+  function chooseProduct(item) {
+    const body = {
+      email,
+      itemId: item._id,
+      url: item.url,
+      title: item.title,
+      price: item.price
+    };
+    const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/cart`, body, config);
+    promise.then((response) => console.log(response.status));
+  }
+
+
   return (
     <>
       <Header>
-        <img src={lightmode}/>
+        <img src={lightmode} />
         <h1>DevShop</h1>
         <Link to="/cart">
           <img src={cart} />
@@ -109,7 +123,7 @@ export default function HomePage() {
       <Produts>
         {products.map((product) => {
           return (
-            <Card>
+            <Card key={product._id} onClick={() => { chooseProduct(product) }}>
               <img src={product.url} />
               <h1>{product.title}</h1>
               <h2>${product.price}</h2>
